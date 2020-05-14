@@ -40,7 +40,14 @@ def greet_person():
     return render_template("compliment.html",
                            person=player,
                            compliment=compliment)
+@app.route('/game')
+def show_madlib_form(): 
+    play_game = requet.args.get("choice")
 
+    if play_game =="yes": 
+        return render_template("game.html")
+    else: 
+        return render_template("goodbye.html")
 
 if __name__ == '__main__':
     # Setting debug=True gives us error messages in the browser and also
